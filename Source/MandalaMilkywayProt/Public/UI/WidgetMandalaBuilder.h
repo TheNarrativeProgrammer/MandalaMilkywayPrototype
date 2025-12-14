@@ -12,6 +12,16 @@
 class UMaterialInstance;
 class UMaterial;
 
+UENUM(Blueprintable, BlueprintType)
+enum EShape : uint8
+{
+	Circle UMETA(DisplayName = "Circle"),
+	Square UMETA(DisplayName = "Square"),
+	Triangle UMETA(DisplayName = "Triangle"),
+	Hexagon UMETA(DisplayName = "Hexagon"),
+	Hourglass UMETA(DisplayName = "Hourglass")
+};
+
 UCLASS(Blueprintable, BlueprintType)
 class MANDALAMILKYWAYPROT_API UShapeData : public UDataAsset
 {
@@ -25,6 +35,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FText ShapeName;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TEnumAsByte<EShape> Shape;
 };
 
 
